@@ -9,11 +9,28 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    
+    
+    var username:AnyObject = ""
+    var jobTitle:AnyObject = ""
+    var logoutAuth:Bool = false
+    
+    @IBOutlet weak var fName: UILabel!
+    @IBOutlet weak var jobT: UILabel!
+    
+    var x:Bool = false
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        println("\(username)")
+        
+        fName.text = "\(username)"
+        jobT.text = "\(jobTitle)"
+
     }
 
     override func didReceiveMemoryWarning() {
