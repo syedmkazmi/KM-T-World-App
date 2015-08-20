@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		0EB17D2D1B8610B200C59811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB17D2C1B8610B200C59811 /* AppDelegate.swift */; };
-		0EB17D2F1B8610B200C59811 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB17D2E1B8610B200C59811 /* ViewController.swift */; };
 		0EB17D321B8610B200C59811 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB17D301B8610B200C59811 /* Main.storyboard */; };
 		0EB17D341B8610B200C59811 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB17D331B8610B200C59811 /* Images.xcassets */; };
 		0EB17D371B8610B200C59811 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EB17D351B8610B200C59811 /* LaunchScreen.xib */; };
 		0EB17D431B8610B200C59811 /* Employee_Bio_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB17D421B8610B200C59811 /* Employee_Bio_AppTests.swift */; };
+		0EB17D4D1B86118400C59811 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB17D4C1B86118400C59811 /* LoginViewController.swift */; };
+		0EB17D4F1B8611E700C59811 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB17D4E1B8611E700C59811 /* MainViewController.swift */; };
+		0EB17D511B86123700C59811 /* SectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB17D501B86123700C59811 /* SectorViewController.swift */; };
+		0EB17D531B86127000C59811 /* BioListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB17D521B86127000C59811 /* BioListTableViewController.swift */; };
+		0EB17D551B8612A600C59811 /* BioDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB17D541B8612A600C59811 /* BioDetailViewController.swift */; };
+		0EB17D571B8612E300C59811 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB17D561B8612E300C59811 /* ContactViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +34,18 @@
 		0EB17D271B8610B200C59811 /* Employee Bio App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Employee Bio App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB17D2B1B8610B200C59811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EB17D2C1B8610B200C59811 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0EB17D2E1B8610B200C59811 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0EB17D311B8610B200C59811 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0EB17D331B8610B200C59811 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0EB17D361B8610B200C59811 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0EB17D3C1B8610B200C59811 /* Employee Bio AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Employee Bio AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB17D411B8610B200C59811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EB17D421B8610B200C59811 /* Employee_Bio_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee_Bio_AppTests.swift; sourceTree = "<group>"; };
+		0EB17D4C1B86118400C59811 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0EB17D4E1B8611E700C59811 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		0EB17D501B86123700C59811 /* SectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectorViewController.swift; sourceTree = "<group>"; };
+		0EB17D521B86127000C59811 /* BioListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioListTableViewController.swift; sourceTree = "<group>"; };
+		0EB17D541B8612A600C59811 /* BioDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioDetailViewController.swift; sourceTree = "<group>"; };
+		0EB17D561B8612E300C59811 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +88,12 @@
 			isa = PBXGroup;
 			children = (
 				0EB17D2C1B8610B200C59811 /* AppDelegate.swift */,
-				0EB17D2E1B8610B200C59811 /* ViewController.swift */,
+				0EB17D4C1B86118400C59811 /* LoginViewController.swift */,
+				0EB17D4E1B8611E700C59811 /* MainViewController.swift */,
+				0EB17D501B86123700C59811 /* SectorViewController.swift */,
+				0EB17D521B86127000C59811 /* BioListTableViewController.swift */,
+				0EB17D541B8612A600C59811 /* BioDetailViewController.swift */,
+				0EB17D561B8612E300C59811 /* ContactViewController.swift */,
 				0EB17D301B8610B200C59811 /* Main.storyboard */,
 				0EB17D331B8610B200C59811 /* Images.xcassets */,
 				0EB17D351B8610B200C59811 /* LaunchScreen.xib */,
@@ -212,7 +227,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EB17D2F1B8610B200C59811 /* ViewController.swift in Sources */,
+				0EB17D511B86123700C59811 /* SectorViewController.swift in Sources */,
+				0EB17D571B8612E300C59811 /* ContactViewController.swift in Sources */,
+				0EB17D4F1B8611E700C59811 /* MainViewController.swift in Sources */,
+				0EB17D551B8612A600C59811 /* BioDetailViewController.swift in Sources */,
+				0EB17D4D1B86118400C59811 /* LoginViewController.swift in Sources */,
+				0EB17D531B86127000C59811 /* BioListTableViewController.swift in Sources */,
 				0EB17D2D1B8610B200C59811 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
