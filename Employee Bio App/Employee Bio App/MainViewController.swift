@@ -15,18 +15,22 @@ class MainViewController: UIViewController {
     var jobTitle:AnyObject = ""
     var logoutAuth:Bool = false
     
+    @IBAction func employeeBio(sender: AnyObject) {
+    }
    
+    
     
     var x:Bool = false
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         println("\(username)")
-        
+         
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         //fName.text = "\(username)"
         //jobT.text = "\(jobTitle)"
 
@@ -37,6 +41,12 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        
+    }
 
     /*
     // MARK: - Navigation
