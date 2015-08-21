@@ -15,8 +15,7 @@ class MainViewController: UIViewController {
     var jobTitle:AnyObject = ""
     var logoutAuth:Bool = false
     
-    @IBOutlet weak var fName: UILabel!
-    @IBOutlet weak var jobT: UILabel!
+   
     
     var x:Bool = false
 
@@ -28,8 +27,8 @@ class MainViewController: UIViewController {
         
         println("\(username)")
         
-        fName.text = "\(username)"
-        jobT.text = "\(jobTitle)"
+        //fName.text = "\(username)"
+        //jobT.text = "\(jobTitle)"
 
     }
 

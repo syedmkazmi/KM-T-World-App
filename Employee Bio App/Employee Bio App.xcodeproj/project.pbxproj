@@ -18,6 +18,7 @@
 		0EB17D531B86127000C59811 /* BioListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB17D521B86127000C59811 /* BioListTableViewController.swift */; };
 		0EB17D551B8612A600C59811 /* BioDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB17D541B8612A600C59811 /* BioDetailViewController.swift */; };
 		0EB17D571B8612E300C59811 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB17D561B8612E300C59811 /* ContactViewController.swift */; };
+		0EE499471B87208D0025B993 /* bios.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EE499461B87208D0025B993 /* bios.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		0EB17D521B86127000C59811 /* BioListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioListTableViewController.swift; sourceTree = "<group>"; };
 		0EB17D541B8612A600C59811 /* BioDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioDetailViewController.swift; sourceTree = "<group>"; };
 		0EB17D561B8612E300C59811 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		0EE499461B87208D0025B993 /* bios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bios.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				0EB17D4C1B86118400C59811 /* LoginViewController.swift */,
 				0EB17D4E1B8611E700C59811 /* MainViewController.swift */,
 				0EB17D501B86123700C59811 /* SectorViewController.swift */,
+				0EE499461B87208D0025B993 /* bios.png */,
 				0EB17D521B86127000C59811 /* BioListTableViewController.swift */,
 				0EB17D541B8612A600C59811 /* BioDetailViewController.swift */,
 				0EB17D561B8612E300C59811 /* ContactViewController.swift */,
@@ -207,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EE499471B87208D0025B993 /* bios.png in Resources */,
 				0EB17D321B8610B200C59811 /* Main.storyboard in Resources */,
 				0EB17D371B8610B200C59811 /* LaunchScreen.xib in Resources */,
 				0EB17D341B8610B200C59811 /* Images.xcassets in Resources */,
@@ -363,6 +367,7 @@
 				INFOPLIST_FILE = "Employee Bio App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -373,6 +378,7 @@
 				INFOPLIST_FILE = "Employee Bio App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -429,6 +435,7 @@
 				0EB17D481B8610B200C59811 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0EB17D491B8610B200C59811 /* Build configuration list for PBXNativeTarget "Employee Bio AppTests" */ = {
 			isa = XCConfigurationList;
@@ -437,6 +444,7 @@
 				0EB17D4B1B8610B200C59811 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

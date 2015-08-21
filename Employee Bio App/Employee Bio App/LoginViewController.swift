@@ -79,19 +79,7 @@ class LoginViewController: UIViewController {
                         self.presentViewController(vc, animated: true, completion: nil)
                         
                     }
-                    // Okay, the parsedJSON is here, let's get the value for 'success' out of it
-                    
-                    /*var fullname = parseJSON["fullname"] as! String
-                    println("Succes: \(fullname)")*/
-                    
-                    /*var region = parseJSON["region"] as! String
-                    println("Region: \(region)")
-                    
-                    var uTarget = parseJSON["target"] as! String
-                    println("Target: \(uTarget)")*/
-                    
-                    
-                }
+                                    }
                 else {
                     // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
                     let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
