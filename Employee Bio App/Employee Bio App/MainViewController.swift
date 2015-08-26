@@ -11,11 +11,15 @@ import UIKit
 class MainViewController: UIViewController {
     
     
+    
     var username:AnyObject = ""
     var jobTitle:AnyObject = ""
     var logoutAuth:Bool = false
+    var tappedButton:Bool = false
     
+    @IBOutlet weak var bioButton: UIButton!
     @IBAction func employeeBio(sender: AnyObject) {
+      
     }
    
     
@@ -25,16 +29,22 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
         
         println("\(username)")
-         
+       
         UIApplication.sharedApplication().statusBarStyle = .LightContent
-        //fName.text = "\(username)"
+        UIApplication.sharedApplication().statusBarFrame.size.height
+       
+              //fName.text = "\(username)"
         //jobT.text = "\(jobTitle)"
 
     }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+       
+            }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

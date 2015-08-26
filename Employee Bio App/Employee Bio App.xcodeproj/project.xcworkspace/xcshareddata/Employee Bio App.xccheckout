@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>0F6F89A9-FDED-40A5-A91A-A71146FA1BDB</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Employee Bio App</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>BE894C55D45F3B6424F93CCF240EE86D173E21DE</key>
 		<string>ssh://bitbucket.org/syedkazmi/km-t-employee-bio-app.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Employee Bio App/Employee Bio App.xcodeproj/project.xcworkspace</string>
+	<string>Employee Bio App/Employee Bio App.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>BE894C55D45F3B6424F93CCF240EE86D173E21DE</key>

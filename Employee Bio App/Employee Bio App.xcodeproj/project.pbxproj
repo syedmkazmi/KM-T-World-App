@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E3043E61B8C671100300CB3 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3043E51B8C671100300CB3 /* UIImage+animatedGIF.m */; };
+		0E77FAAB1B8B1D780080D2A8 /* sectorButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E77FAAA1B8B1D780080D2A8 /* sectorButtons.swift */; };
+		0E77FAAF1B8B25FE0080D2A8 /* SectorListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E77FAAE1B8B25FE0080D2A8 /* SectorListTableViewController.swift */; };
 		0EB17D2D1B8610B200C59811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB17D2C1B8610B200C59811 /* AppDelegate.swift */; };
 		0EB17D321B8610B200C59811 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB17D301B8610B200C59811 /* Main.storyboard */; };
 		0EB17D341B8610B200C59811 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB17D331B8610B200C59811 /* Images.xcassets */; };
@@ -31,6 +34,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E3043E41B8C671100300CB3 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		0E3043E51B8C671100300CB3 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
+		0E3043E71B8C674A00300CB3 /* Employee Bio App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Employee Bio App-Bridging-Header.h"; sourceTree = "<group>"; };
+		0E77FAAA1B8B1D780080D2A8 /* sectorButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sectorButtons.swift; sourceTree = "<group>"; };
+		0E77FAAE1B8B25FE0080D2A8 /* SectorListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectorListTableViewController.swift; sourceTree = "<group>"; };
 		0EB17D271B8610B200C59811 /* Employee Bio App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Employee Bio App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB17D2B1B8610B200C59811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EB17D2C1B8610B200C59811 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E3043E31B8C66FC00300CB3 /* Gif Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				0E3043E41B8C671100300CB3 /* UIImage+animatedGIF.h */,
+				0E3043E51B8C671100300CB3 /* UIImage+animatedGIF.m */,
+			);
+			name = "Gif Header Files";
+			sourceTree = "<group>";
+		};
 		0EB17D1E1B8610B200C59811 = {
 			isa = PBXGroup;
 			children = (
@@ -87,17 +104,21 @@
 		0EB17D291B8610B200C59811 /* Employee Bio App */ = {
 			isa = PBXGroup;
 			children = (
+				0E3043E31B8C66FC00300CB3 /* Gif Header Files */,
 				0EB17D2C1B8610B200C59811 /* AppDelegate.swift */,
 				0EB17D4C1B86118400C59811 /* LoginViewController.swift */,
 				0EB17D4E1B8611E700C59811 /* MainViewController.swift */,
-				0EB17D501B86123700C59811 /* SectorViewController.swift */,
-				0EB17D521B86127000C59811 /* BioListTableViewController.swift */,
 				0EB17D541B8612A600C59811 /* BioDetailViewController.swift */,
 				0EB17D561B8612E300C59811 /* ContactViewController.swift */,
+				0E77FAAE1B8B25FE0080D2A8 /* SectorListTableViewController.swift */,
+				0EB17D521B86127000C59811 /* BioListTableViewController.swift */,
+				0EB17D501B86123700C59811 /* SectorViewController.swift */,
+				0E77FAAA1B8B1D780080D2A8 /* sectorButtons.swift */,
 				0EB17D301B8610B200C59811 /* Main.storyboard */,
 				0EB17D331B8610B200C59811 /* Images.xcassets */,
 				0EB17D351B8610B200C59811 /* LaunchScreen.xib */,
 				0EB17D2A1B8610B200C59811 /* Supporting Files */,
+				0E3043E71B8C674A00300CB3 /* Employee Bio App-Bridging-Header.h */,
 			);
 			path = "Employee Bio App";
 			sourceTree = "<group>";
@@ -176,6 +197,7 @@
 				TargetAttributes = {
 					0EB17D261B8610B200C59811 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = BJ293NDE9X;
 					};
 					0EB17D3B1B8610B200C59811 = {
 						CreatedOnToolsVersion = 6.4;
@@ -227,13 +249,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E77FAAB1B8B1D780080D2A8 /* sectorButtons.swift in Sources */,
 				0EB17D511B86123700C59811 /* SectorViewController.swift in Sources */,
 				0EB17D571B8612E300C59811 /* ContactViewController.swift in Sources */,
 				0EB17D4F1B8611E700C59811 /* MainViewController.swift in Sources */,
 				0EB17D551B8612A600C59811 /* BioDetailViewController.swift in Sources */,
 				0EB17D4D1B86118400C59811 /* LoginViewController.swift in Sources */,
 				0EB17D531B86127000C59811 /* BioListTableViewController.swift in Sources */,
+				0E3043E61B8C671100300CB3 /* UIImage+animatedGIF.m in Sources */,
 				0EB17D2D1B8610B200C59811 /* AppDelegate.swift in Sources */,
+				0E77FAAF1B8B25FE0080D2A8 /* SectorListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,9 +385,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Employee Bio App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Employee Bio App/Employee Bio App-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -371,9 +400,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Employee Bio App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Employee Bio App/Employee Bio App-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
