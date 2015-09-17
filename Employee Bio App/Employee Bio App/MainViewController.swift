@@ -14,8 +14,11 @@ class MainViewController: UIViewController {
     
     var username:AnyObject = ""
     var jobTitle:AnyObject = ""
+    var userEmail:AnyObject = ""
     var logoutAuth:Bool = false
     var tappedButton:Bool = false
+    
+    var bioArray = NSArray()
     
     @IBOutlet weak var bioButton: UIButton!
     @IBAction func employeeBio(sender: AnyObject) {
@@ -23,39 +26,64 @@ class MainViewController: UIViewController {
     }
    
     
+    @IBAction func caseStudies(sender: AnyObject) {
+        
+        print("adasd")
+    }
+    
+    
+    @IBAction func userSettings(sender: AnyObject) {
+        
+        print("set")
+        
+    
+    }
+ 
     
     var x:Bool = false
 
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        println("\(username)")
+        
+        print("\(username)")
        
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         UIApplication.sharedApplication().statusBarFrame.size.height
        
-              //fName.text = "\(username)"
-        //jobT.text = "\(jobTitle)"
-
     }
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool)
+    {
        
-            }
+    }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(animated: Bool)
+    {
         super.viewWillDisappear(animated)
         
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "settings") {
+            // pass data to next view
+            let viewController = segue.destinationViewController as! SettingsTableViewController
+            viewController.username = User.name!
+            viewController.jobTitle = User.job!
+            viewController.userEmail = User.email!
+        }
     }
 
     /*

@@ -11,7 +11,7 @@ import UIKit
 
 class sectorButtons:UIButton{
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     self.layer.cornerRadius = 0.0;
     self.layer.borderColor = UIColor.blackColor().CGColor

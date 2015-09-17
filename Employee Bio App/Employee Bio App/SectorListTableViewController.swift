@@ -64,7 +64,7 @@ class SectorListTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("customCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("customCell", forIndexPath: indexPath) 
 
         // Configure the cell...
         
@@ -138,7 +138,7 @@ class SectorListTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         
         if let destination = segue.destinationViewController as? BioListTableViewController {
-          let indexPath = self.tableView.indexPathForSelectedRow()
+          let indexPath = self.tableView.indexPathForSelectedRow
             
             if let row:Int = indexPath?.row {
                 
