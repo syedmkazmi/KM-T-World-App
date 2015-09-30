@@ -10,7 +10,7 @@ class customActivityIndicator: UIVisualEffectView {
     }
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
     let label: UILabel = UILabel()
-    let blurEffect = UIBlurEffect(style: .Light)
+    let blurEffect = UIBlurEffect(style: .Dark)
     let vibrancyView: UIVisualEffectView
     
     init(text: String) {
@@ -20,10 +20,10 @@ class customActivityIndicator: UIVisualEffectView {
         self.setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required init(coder aDecoder: NSCoder) {
         self.text = ""
         self.vibrancyView = UIVisualEffectView(effect: UIVibrancyEffect(forBlurEffect: blurEffect))
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
         self.setup()
     }
     
@@ -32,23 +32,18 @@ class customActivityIndicator: UIVisualEffectView {
         vibrancyView.contentView.addSubview(activityIndicator)
         vibrancyView.contentView.addSubview(label)
         activityIndicator.startAnimating()
-        
-        
     }
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        
         if let superview = self.superview {
             
-           let width: CGFloat = 150
-            let height: CGFloat = 50
+            let width: CGFloat = 150
+            let height: CGFloat = 50.0
             self.frame = CGRectMake(superview.frame.size.width / 2 - width / 2,
                 superview.frame.height / 2 - height,
                 width,height)
-            
             
             vibrancyView.frame = self.bounds
             
@@ -59,12 +54,11 @@ class customActivityIndicator: UIVisualEffectView {
             
             layer.cornerRadius = 8.0
             layer.masksToBounds = true
-            layer.backgroundColor = (UIColor.blackColor()).CGColor
             
             label.text = text
             label.textAlignment = NSTextAlignment.Center
             label.frame = CGRectMake(activityIndicatorSize + 5, 0, width - activityIndicatorSize - 20, height)
-            label.textColor = UIColor.whiteColor()
+            label.textColor = UIColor.grayColor()
             label.font = UIFont.boldSystemFontOfSize(16)
             
         }
@@ -76,5 +70,5 @@ class customActivityIndicator: UIVisualEffectView {
     
     func hide() {
         self.hidden = true
-}
+    }
 }

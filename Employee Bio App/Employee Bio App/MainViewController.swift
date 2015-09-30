@@ -18,23 +18,26 @@ class MainViewController: UIViewController {
     var logoutAuth:Bool = false
     var tappedButton:Bool = false
     
+    // An array to the hold the bios returned from the server
     var bioArray = NSArray()
     
+    //Outlet for the Bio Button
     @IBOutlet weak var bioButton: UIButton!
     @IBAction func employeeBio(sender: AnyObject) {
-      
+     
+        print("Tapped on the bios button")
     }
    
     
     @IBAction func caseStudies(sender: AnyObject) {
         
-        print("adasd")
+        print("Tapped on the case study button")
     }
     
     
     @IBAction func userSettings(sender: AnyObject) {
         
-        print("set")
+        print("Tapped on the setting button")
         
     
     }
@@ -43,8 +46,7 @@ class MainViewController: UIViewController {
     var x:Bool = false
 
 
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
@@ -57,19 +59,17 @@ class MainViewController: UIViewController {
     }
     
     
-    override func viewDidAppear(animated: Bool)
-    {
+    override func viewDidAppear(animated: Bool) {
        
     }
 
-    override func didReceiveMemoryWarning()
-    {
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillDisappear(animated: Bool)
-    {
+    
+    override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
@@ -80,6 +80,8 @@ class MainViewController: UIViewController {
         if (segue.identifier == "settings") {
             // pass data to next view
             let viewController = segue.destinationViewController as! SettingsTableViewController
+            // Getting the user details from the NSUserDefaults and setting them to the variables in the settings view and passing
+            // them along to the settings view.
             viewController.username = User.name!
             viewController.jobTitle = User.job!
             viewController.userEmail = User.email!

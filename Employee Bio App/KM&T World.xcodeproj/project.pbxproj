@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		0E3043E61B8C671100300CB3 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3043E51B8C671100300CB3 /* UIImage+animatedGIF.m */; };
+		0E37602D1BBBD4F400C1D3AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E37602B1BBBD4F400C1D3AA /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		0E40603A1BA2E08F00F305F1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4060391BA2E08F00F305F1 /* User.swift */; };
-		0E609CEA1B8F1BD4002EB15D /* userIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E609CE91B8F1BD4002EB15D /* userIcon.png */; };
 		0E77FAAB1B8B1D780080D2A8 /* sectorButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E77FAAA1B8B1D780080D2A8 /* sectorButtons.swift */; };
 		0E77FAAF1B8B25FE0080D2A8 /* SectorListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E77FAAE1B8B25FE0080D2A8 /* SectorListTableViewController.swift */; };
+		0E8C69C31BBA83F200FA2F28 /* CaseStudySectorListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C69C21BBA83F200FA2F28 /* CaseStudySectorListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		0E8C69C51BBA8E3600FA2F28 /* CaseStudyListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C69C41BBA8E3600FA2F28 /* CaseStudyListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		0E8C69CD1BBACD2F00FA2F28 /* CaseStudyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C69CC1BBACD2F00FA2F28 /* CaseStudyDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		0EA60CD21B905BA10099FC92 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA60CD11B905BA10099FC92 /* LoadingOverlay.swift */; };
 		0EB17D2D1B8610B200C59811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB17D2C1B8610B200C59811 /* AppDelegate.swift */; };
-		0EB17D321B8610B200C59811 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB17D301B8610B200C59811 /* Main.storyboard */; };
 		0EB17D341B8610B200C59811 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB17D331B8610B200C59811 /* Images.xcassets */; };
 		0EB17D371B8610B200C59811 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EB17D351B8610B200C59811 /* LaunchScreen.xib */; };
 		0EB17D4D1B86118400C59811 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB17D4C1B86118400C59811 /* LoginViewController.swift */; };
@@ -26,21 +28,24 @@
 		0EBF92041BA19333001705D1 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBF92031BA19333001705D1 /* SettingsTableViewController.swift */; };
 		0EC9BA0E1B9EE581005B8AD5 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EC9BA0C1B9EE473005B8AD5 /* OpenSans-Regular.ttf */; };
 		0EC9BA0F1B9EE581005B8AD5 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EC9BA0D1B9EE47D005B8AD5 /* OpenSans-ExtraBold.ttf */; };
+		0EFD57E01BAFEDC40041FCE4 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFD57DF1BAFEDC40041FCE4 /* Reachability.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E3043E41B8C671100300CB3 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
 		0E3043E51B8C671100300CB3 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		0E3043E71B8C674A00300CB3 /* Employee Bio App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Employee Bio App-Bridging-Header.h"; sourceTree = "<group>"; };
+		0E37602C1BBBD4F400C1D3AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E4060391BA2E08F00F305F1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		0E609CE91B8F1BD4002EB15D /* userIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userIcon.png; sourceTree = "<group>"; };
 		0E77FAAA1B8B1D780080D2A8 /* sectorButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sectorButtons.swift; sourceTree = "<group>"; };
 		0E77FAAE1B8B25FE0080D2A8 /* SectorListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectorListTableViewController.swift; sourceTree = "<group>"; };
+		0E8C69C21BBA83F200FA2F28 /* CaseStudySectorListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseStudySectorListTableViewController.swift; sourceTree = "<group>"; };
+		0E8C69C41BBA8E3600FA2F28 /* CaseStudyListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseStudyListTableViewController.swift; sourceTree = "<group>"; };
+		0E8C69CC1BBACD2F00FA2F28 /* CaseStudyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseStudyDetailViewController.swift; sourceTree = "<group>"; };
 		0EA60CD11B905BA10099FC92 /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		0EB17D271B8610B200C59811 /* KM&T World.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KM&T World.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB17D2B1B8610B200C59811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EB17D2C1B8610B200C59811 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0EB17D311B8610B200C59811 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0EB17D331B8610B200C59811 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0EB17D361B8610B200C59811 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0EB17D411B8610B200C59811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +59,7 @@
 		0EBF92031BA19333001705D1 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		0EC9BA0C1B9EE473005B8AD5 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		0EC9BA0D1B9EE47D005B8AD5 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		0EFD57DF1BAFEDC40041FCE4 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,19 +109,22 @@
 				0EB17D4C1B86118400C59811 /* LoginViewController.swift */,
 				0EB17D4E1B8611E700C59811 /* MainViewController.swift */,
 				0EB17D541B8612A600C59811 /* BioDetailViewController.swift */,
-				0EB17D561B8612E300C59811 /* ContactViewController.swift */,
-				0E609CE91B8F1BD4002EB15D /* userIcon.png */,
-				0E77FAAE1B8B25FE0080D2A8 /* SectorListTableViewController.swift */,
 				0EB17D521B86127000C59811 /* BioListTableViewController.swift */,
+				0EB17D561B8612E300C59811 /* ContactViewController.swift */,
+				0E77FAAE1B8B25FE0080D2A8 /* SectorListTableViewController.swift */,
+				0E8C69C21BBA83F200FA2F28 /* CaseStudySectorListTableViewController.swift */,
+				0E8C69C41BBA8E3600FA2F28 /* CaseStudyListTableViewController.swift */,
+				0E8C69CC1BBACD2F00FA2F28 /* CaseStudyDetailViewController.swift */,
 				0EB17D501B86123700C59811 /* SectorViewController.swift */,
 				0E77FAAA1B8B1D780080D2A8 /* sectorButtons.swift */,
 				0EBF92031BA19333001705D1 /* SettingsTableViewController.swift */,
-				0EB17D301B8610B200C59811 /* Main.storyboard */,
 				0EB17D331B8610B200C59811 /* Images.xcassets */,
+				0E37602B1BBBD4F400C1D3AA /* Main.storyboard */,
 				0EB17D351B8610B200C59811 /* LaunchScreen.xib */,
 				0EB17D2A1B8610B200C59811 /* Supporting Files */,
 				0E3043E71B8C674A00300CB3 /* Employee Bio App-Bridging-Header.h */,
 				0EA60CD11B905BA10099FC92 /* LoadingOverlay.swift */,
+				0EFD57DF1BAFEDC40041FCE4 /* Reachability.swift */,
 			);
 			path = "Employee Bio App";
 			sourceTree = "<group>";
@@ -182,7 +191,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Knowledge Management & Transfer";
 				TargetAttributes = {
 					0EB17D261B8610B200C59811 = {
@@ -220,11 +229,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EC9BA0E1B9EE581005B8AD5 /* OpenSans-Regular.ttf in Resources */,
+				0E37602D1BBBD4F400C1D3AA /* Main.storyboard in Resources */,
 				0EC9BA0F1B9EE581005B8AD5 /* OpenSans-ExtraBold.ttf in Resources */,
-				0EB17D321B8610B200C59811 /* Main.storyboard in Resources */,
 				0EB17D371B8610B200C59811 /* LaunchScreen.xib in Resources */,
 				0EB17D341B8610B200C59811 /* Images.xcassets in Resources */,
-				0E609CEA1B8F1BD4002EB15D /* userIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,14 +243,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EFD57E01BAFEDC40041FCE4 /* Reachability.swift in Sources */,
 				0E40603A1BA2E08F00F305F1 /* User.swift in Sources */,
 				0E77FAAB1B8B1D780080D2A8 /* sectorButtons.swift in Sources */,
 				0EB17D511B86123700C59811 /* SectorViewController.swift in Sources */,
 				0EB17D571B8612E300C59811 /* ContactViewController.swift in Sources */,
 				0EA60CD21B905BA10099FC92 /* LoadingOverlay.swift in Sources */,
+				0E8C69C31BBA83F200FA2F28 /* CaseStudySectorListTableViewController.swift in Sources */,
 				0EB17D4F1B8611E700C59811 /* MainViewController.swift in Sources */,
 				0EB17D551B8612A600C59811 /* BioDetailViewController.swift in Sources */,
+				0E8C69C51BBA8E3600FA2F28 /* CaseStudyListTableViewController.swift in Sources */,
 				0EB17D4D1B86118400C59811 /* LoginViewController.swift in Sources */,
+				0E8C69CD1BBACD2F00FA2F28 /* CaseStudyDetailViewController.swift in Sources */,
 				0EB17D531B86127000C59811 /* BioListTableViewController.swift in Sources */,
 				0EBF92041BA19333001705D1 /* SettingsTableViewController.swift in Sources */,
 				0E3043E61B8C671100300CB3 /* UIImage+animatedGIF.m in Sources */,
@@ -254,10 +266,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0EB17D301B8610B200C59811 /* Main.storyboard */ = {
+		0E37602B1BBBD4F400C1D3AA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0EB17D311B8610B200C59811 /* Base */,
+				0E37602C1BBBD4F400C1D3AA /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -294,6 +306,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -362,7 +375,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Employee Bio App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kmandt.syed.kazmi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "KM&T World";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Employee Bio App/Employee Bio App-Bridging-Header.h";
@@ -379,7 +394,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Employee Bio App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kmandt.syed.kazmi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "KM&T World";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Employee Bio App/Employee Bio App-Bridging-Header.h";

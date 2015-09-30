@@ -61,6 +61,7 @@ class SettingsTableViewController: UITableViewController, UIImagePickerControlle
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info:[String: AnyObject]){
     
     
@@ -89,13 +90,22 @@ class SettingsTableViewController: UITableViewController, UIImagePickerControlle
         // Dispose of any resources that can be recreated.
     }
 
+  
+    @IBAction func removePhoto(sender: AnyObject) {
+        
+        userPhoto.image = UIImage(named: "userDefaultIcon.png")
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setObject("userDefaultIcon.png", forKey: "userPhoto")
+        userDefaults.synchronize()
+    }
+    
     @IBAction func logoutUser(sender: AnyObject) {
         
         // Setting up a variable to save the API link
-        var request = NSMutableURLRequest(URL: NSURL(string: "https://employee-bio-app-kmandt-syedkazmi.c9.io/mob/logout")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://employee-bio-app-kmandt-syedkazmi.c9.io/mob/logout")!)
         
         // Creating a session
-        var session = NSURLSession.sharedSession()
+        let session = NSURLSession.sharedSession()
         
         // Setting the HTTP method call
         request.HTTPMethod = "GET"
@@ -107,17 +117,17 @@ class SettingsTableViewController: UITableViewController, UIImagePickerControlle
         //var params = ["email":"\(uname)", "password":"\(pass)"] as Dictionary<String, String>
         
         // Setting up request body and header and making the request
-        var err: NSError?
+        let _: NSError?
         //request.HTTPBody = NSJSONSerialization.dataWithJSONObject(parameter: nil, options: nil, error: &err)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         // Getting data back from the response
-        var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, err -> Void in
             print("Response: \(response)")
             //var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
             //println("Body: \(strData)")
-            var err: NSError?
+            //var err: NSError?
             //var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
             
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true

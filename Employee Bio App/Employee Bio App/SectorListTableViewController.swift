@@ -14,7 +14,7 @@ class SectorListTableViewController: UITableViewController {
     @IBOutlet weak var sectorIconView: UIImageView!
    
     
-    struct WeatherSummary {
+    struct Summary {
         var id: String
     }
     
@@ -22,26 +22,30 @@ class SectorListTableViewController: UITableViewController {
     var manuArray = NSArray()
     
     // Array of sector within our company
-    var selectSector: [String] = ["Healthcare", "MMRO","Infrastructure","Rail","Mining"]
+    var selectSector: [String] = ["Healthcare", "MMRO","Infrastructure","Rail","Mining","Engineering Services","Senior Management"]
     
     var sectorIcon: [UIImage] = [
         UIImage(named: "healthcareIcon.pdf")!,
         UIImage(named: "MMROIcon.pdf")!,
         UIImage(named: "InfrastructureIcon.pdf")!,
         UIImage(named: "RailIcon.pdf")!,
-        UIImage(named: "miningIcon.pdf")!
+        UIImage(named: "miningIcon.pdf")!,
+        UIImage(named: "esIcon.pdf")!,
+        UIImage(named: "seniorManageIcon")!
     ]
     
   
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = 80.0
+        UIViewController.attemptRotationToDeviceOrientation()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     // MARK: - Table view data source
 

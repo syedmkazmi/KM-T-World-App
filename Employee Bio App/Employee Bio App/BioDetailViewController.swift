@@ -13,35 +13,51 @@ import QuickLook
 
 class BioDetailViewController: UIViewController, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate {
 
-   
+    // Outlet for the webView where we load the URL for the bio from the server or dropbox
     @IBOutlet weak var webView: UIWebView!
-    var weather = NSDictionary()
+    var userObject = NSDictionary()
     var emailSender: String?
+    var userBioLink: String?
+    var dta:NSData?
     
-    var docController:UIDocumentInteractionController!
+    
+    // Creating a activity indicator and setting its text
+    let spinner = customActivityIndicator(text: "Loading")
+    let attchBioSpinner = customActivityIndicator(text: "attaching")
+    
     
     //@IBOutlet weak var name: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let url = NSURL(fileURLWithPath: "http://kmandtworld.com/employeeBio/John%20Smith.pdf")
-        /*let fileURL = NSBundle.mainBundle().URLForResource("http://kmandtworld.com/employeeBio/John%20Smith.pdf", withExtension: "pdf")!
         
-        self.docController = UIDocumentInteractionController(URL: fileURL)
-        self.docController.delegate = self
-        self.docController.presentOpenInMenuFromRect(self.view.bounds, inView: self.view, animated: true)*/
         
-        let urlPdf = NSURL(string: "http://kmandtworld.com/employeeBio/John%20Smith.pdf");
+    
+        // Starting the the activity indicator spinner
+        self.view.addSubview(spinner)
+        
+        if let userBio = userObject["bioLink"] as? String {
+            
+            userBioLink = userBio
+        }
+        // Loading the
+        let urlPdf = NSURL(string: userBioLink!);
         let requestObj = NSURLRequest(URL: urlPdf!)
         webView.loadRequest(requestObj)
         // Do any additional setup after loading the view.
         
-        if let id = weather["employeeName"] as? String{
+        /*if let id = weather["employeeName"] as? String{
            // name.text = id
-        }
+        }*/
         
-        if let email = weather["email"] as? String{
+        if let email = userObject["email"] as? String{
             emailSender = email
         }
+    }
+    
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        self.spinner.hide()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,15 +68,48 @@ class BioDetailViewController: UIViewController, MFMailComposeViewControllerDele
     
     @IBAction func shareBio(sender: AnyObject) {
         
-        let mailComposeViewController = configuredMailComposeViewController()
-        if MFMailComposeViewController.canSendMail(){
-            self.presentViewController(mailComposeViewController, animated: true, completion: nil)
-        } else {
-            self.showSendMailErrorAlert()
+        //presentViewController( activityVC, animated: true, completion: nil )
+        
+        self.view.addSubview(attchBioSpinner)
+        let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        let request = NSMutableURLRequest(URL: NSURL(string: userBioLink!)!)
+        request.HTTPMethod = "GET"
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, err -> Void in
+            
+            dispatch_async(dispatch_get_main_queue())
+                {
+                    let activityController = UIActivityViewController(activityItems: ["See attached for KM&T Employee Bio", data!], applicationActivities: nil)
+                    self.presentViewController(activityController, animated: true, completion: nil)
+                    let presCon = activityController.popoverPresentationController
+                    presCon?.barButtonItem = sender as? UIBarButtonItem
+                    self.attchBioSpinner.hide()
+                }
+           
+       
+
+            
+            
+            //self.view.addSubview(self.attchBioSpinner)
+            /*let mailComposeViewController = self.configuredMailComposeViewController()
+            if MFMailComposeViewController.canSendMail(){
+                
+                mailComposeViewController.addAttachmentData(data!, mimeType: "application/pdf", fileName: "bio.pdf")
+                self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+
+                
+            } else {
+                self.showSendMailErrorAlert()
+                
+            }*/
+            //print("Entered share bio function")
+            
+            
+        })
+        
+        task.resume()
         
         }
-        print("Entered share bio function")
-    }
     
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         
@@ -68,15 +117,22 @@ class BioDetailViewController: UIViewController, MFMailComposeViewControllerDele
         mailComposerVC.mailComposeDelegate = self
         
         mailComposerVC.setSubject("KM&T Employee Bio")
-        mailComposerVC.setMessageBody("this is test email from \(emailSender!)", isHTML: false)
+        mailComposerVC.setMessageBody("Please see the link below for the KM&T Employee Bio. Bio Link: \(userBioLink!)", isHTML: false)
         
         return mailComposerVC
     }
     
     func showSendMailErrorAlert(){
-        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail. Please check email configuration and try again", delegate: self, cancelButtonTitle: "OK")
+      
+        let sendMailErrorAlert  = UIAlertController(title: "Could Not Send Email", message: "Your device could not send e-mail. Please check email configuration and try again", preferredStyle: .Alert)
         
-        sendMailErrorAlert.show()
+        let yesAction = UIAlertAction(title: "Yes", style: .Default) { (action) -> Void in
+            print("The user is okay.")
+        }
+        
+        sendMailErrorAlert.addAction(yesAction)
+        self.presentViewController(sendMailErrorAlert, animated: true, completion: nil)
+        
     }
     
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
