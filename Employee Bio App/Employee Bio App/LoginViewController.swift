@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
     @IBAction func forgotPassword(sender: AnyObject) {
         
         // Redirect user to forgot password link on safari
-        if let url = NSURL(string: "https://employee-bio-app-kmandt-syedkazmi.c9.io/forgot") {
+        if let url = NSURL(string: "http://kmandt-world-app.herokuapp.com/forgot") {
             UIApplication.sharedApplication().openURL(url)
         }
     }
@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
             print("Pressed Login")
             
             // Setting up a variable to save the API link
-            let request = NSMutableURLRequest(URL: NSURL(string: "https://employee-bio-app-kmandt-syedkazmi.c9.io/login/mob")!)
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://kmandt-world-app.herokuapp.com/login/mob")!)
             
             // Creating a session
             let session = NSURLSession.sharedSession()

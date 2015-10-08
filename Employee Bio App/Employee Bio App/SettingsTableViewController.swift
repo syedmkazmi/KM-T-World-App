@@ -41,7 +41,11 @@ class SettingsTableViewController: UITableViewController, UIImagePickerControlle
               let img = UIImage(data: userPhotoIsNotNil)
             
                 userPhoto.image = img
-            }
+        } else {
+            
+            userPhoto.image = UIImage(named: "userDefaultIcon")
+           
+        }
             
         
               
@@ -102,7 +106,7 @@ class SettingsTableViewController: UITableViewController, UIImagePickerControlle
     @IBAction func logoutUser(sender: AnyObject) {
         
         // Setting up a variable to save the API link
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://employee-bio-app-kmandt-syedkazmi.c9.io/mob/logout")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://kmandt-world-app.herokuapp.com/mob/logout")!)
         
         // Creating a session
         let session = NSURLSession.sharedSession()

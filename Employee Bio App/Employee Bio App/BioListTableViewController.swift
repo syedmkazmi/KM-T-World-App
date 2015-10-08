@@ -94,7 +94,7 @@ class BioListTableViewController: UITableViewController {
             
             print("This is TWEST")
             
-            let request = NSMutableURLRequest(URL: NSURL(string: "https://employee-bio-app-kmandt-syedkazmi.c9.io/user/es")!)
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://kmandt-world-app.herokuapp.com/user/es")!)
             let session = NSURLSession.sharedSession()
             request.HTTPMethod = "GET"
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -194,7 +194,7 @@ class BioListTableViewController: UITableViewController {
             
             print("This is TWEST")
             
-            let request = NSMutableURLRequest(URL: NSURL(string: "https://employee-bio-app-kmandt-syedkazmi.c9.io/user/manufacturing")!)
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://kmandt-world-app.herokuapp.com/user/manufacturing")!)
             let session = NSURLSession.sharedSession()
             request.HTTPMethod = "GET"
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -292,7 +292,7 @@ class BioListTableViewController: UITableViewController {
             
             print("This is TWEST")
             
-            let request = NSMutableURLRequest(URL: NSURL(string: "https://employee-bio-app-kmandt-syedkazmi.c9.io/user/infrastructure")!)
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://kmandt-world-app.herokuapp.com/user/infrastructure")!)
             let session = NSURLSession.sharedSession()
             request.HTTPMethod = "GET"
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -391,7 +391,7 @@ class BioListTableViewController: UITableViewController {
         
         print("This is TWEST")
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://employee-bio-app-kmandt-syedkazmi.c9.io/user/all")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://kmandt-world-app.herokuapp.com/user/all")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "GET"
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -517,11 +517,15 @@ class BioListTableViewController: UITableViewController {
             
         }
         
-        if let job = Summary["sector"] as? String {
+        if let job = Summary["jobTitle"] as? String {
             cell.detailTextLabel?.text = job
+            cell.detailTextLabel?.numberOfLines = 0
         
         }
         
+        //if  cell.imageView?.image == nil {
+          //  cell.imageView?.image = UIImage(named: "defaultUserIcon.pdf")
+        //}
         /*var fram = cell.imageView?.frame
         fram? = CGRectMake( 0, 0, 50, 55 )
         let imageSize = 80 as CGFloat

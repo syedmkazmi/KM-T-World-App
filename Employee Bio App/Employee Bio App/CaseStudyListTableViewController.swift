@@ -9,7 +9,8 @@
 import UIKit
 
 class CaseStudyListTableViewController: UITableViewController {
-
+    
+    var refreshCtrl = UIRefreshControl()
     var cellTapped = Int()
     let spinner = customActivityIndicator(text: "Loading")
     var json: NSArray!
@@ -29,6 +30,10 @@ class CaseStudyListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = 80.0
+        //self.refreshCtrl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        //self.refreshCtrl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        //self.tableView?.addSubview(refreshCtrl)
+ 
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -53,6 +58,12 @@ class CaseStudyListTableViewController: UITableViewController {
         }
     }
     
+    /*func refresh(sender:AnyObject)
+    {
+        getOfficeCaseStudy()
+        self.refreshCtrl.endRefreshing()
+    }*/
+    
     // gets all operations case studies
     func getOperationsCaseStudy(){
         
@@ -66,7 +77,7 @@ class CaseStudyListTableViewController: UITableViewController {
             
             print("This is TWEST")
             
-            let request = NSMutableURLRequest(URL: NSURL(string: "https://employee-bio-app-kmandt-syedkazmi.c9.io/user/casestudy/operations")!)
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://kmandt-world-app.herokuapp.com/user/casestudy/operations")!)
             let session = NSURLSession.sharedSession()
             request.HTTPMethod = "GET"
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -164,7 +175,7 @@ class CaseStudyListTableViewController: UITableViewController {
             
             print("This is TWEST")
             
-            let request = NSMutableURLRequest(URL: NSURL(string: "https://employee-bio-app-kmandt-syedkazmi.c9.io/user/casestudy/healthcare")!)
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://kmandt-world-app.herokuapp.com/user/casestudy/healthcare")!)
             let session = NSURLSession.sharedSession()
             request.HTTPMethod = "GET"
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -252,9 +263,201 @@ class CaseStudyListTableViewController: UITableViewController {
     }
     
     func getPublicSectorCaseStudy(){
+        
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            
+            //To start animating
+            self.view.addSubview(spinner)
+            
+            
+            print("This is TWEST")
+            
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://kmandt-world-app.herokuapp.com/user/casestudy/publicSector")!)
+            let session = NSURLSession.sharedSession()
+            request.HTTPMethod = "GET"
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
+            
+            let _: NSError?
+            
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+            let task = session.dataTaskWithRequest(request, completionHandler: {data, response, err -> Void in
+                
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+                
+                print("Response: \(response)")
+                let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("Body: \(strData)")
+                //var err: NSError?
+                
+                do{
+                    self.json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) as? NSArray
+                } catch {
+                    
+                }
+                
+                
+                
+                // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
+                if(err != nil) {
+                    
+                    print(err!.localizedDescription)
+                    let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print("Error could not parse JSON: '\(jsonStr)'")
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        
+                        let alert = UIAlertController(title: "Alert", message: "Seems to be an error with server. Try Again Later", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        
+                    }}
+                else {
+                    
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    
+                    //To to long tasks
+                    // LoadingOverlay.shared.hideOverlayView()
+                    // The JSONObjectWithData constructor didn't return an error. But, we should still
+                    // check and make sure that json has a value using optional binding.
+                    //var newWeather = WeatherSummary(id:"")
+                    
+                    if let parseJSON = self.json {
+                        
+                        
+                        self.bioArray = parseJSON
+                        
+                        
+                    }
+                    else {
+                        // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+                        let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                        print("Error could not parse JSON: \(jsonStr)")
+                        
+                    }}
+                
+            })
+            
+            
+            task.resume()
+            
+        }
+            
+        else {
+            
+            print("Internet connection FAILED")
+            let internetErrorAlert  = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: .Alert)
+            
+            let yesAction = UIAlertAction(title: "okay", style: .Default) { (action) -> Void in
+                print("The user is okay.")
+            }
+            
+            internetErrorAlert.addAction(yesAction)
+            self.presentViewController(internetErrorAlert, animated: true, completion: nil)
+        }
     }
     
     func getOfficeCaseStudy(){
+        
+        
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            
+            //To start animating
+            self.view.addSubview(spinner)
+            
+            
+            print("This is TWEST")
+            
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://kmandt-world-app.herokuapp.com/user/casestudy/office")!)
+            let session = NSURLSession.sharedSession()
+            request.HTTPMethod = "GET"
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
+            
+            let _: NSError?
+            
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+            let task = session.dataTaskWithRequest(request, completionHandler: {data, response, err -> Void in
+                
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+                
+                print("Response: \(response)")
+                let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("Body: \(strData)")
+                //var err: NSError?
+                
+                do{
+                    self.json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) as? NSArray
+                } catch {
+                    
+                }
+                
+                
+                
+                // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
+                if(err != nil) {
+                    
+                    print(err!.localizedDescription)
+                    let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print("Error could not parse JSON: '\(jsonStr)'")
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        
+                        let alert = UIAlertController(title: "Alert", message: "Seems to be an error with server. Try Again Later", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        
+                    }}
+                else {
+                    
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    
+                    //To to long tasks
+                    // LoadingOverlay.shared.hideOverlayView()
+                    // The JSONObjectWithData constructor didn't return an error. But, we should still
+                    // check and make sure that json has a value using optional binding.
+                    //var newWeather = WeatherSummary(id:"")
+                    
+                    if let parseJSON = self.json {
+                        
+                        
+                        self.bioArray = parseJSON
+                        
+                        
+                    }
+                    else {
+                        // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+                        let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                        print("Error could not parse JSON: \(jsonStr)")
+                        
+                    }}
+                
+            })
+            
+            
+            task.resume()
+            
+        }
+            
+        else {
+            
+            print("Internet connection FAILED")
+            let internetErrorAlert  = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: .Alert)
+            
+            let yesAction = UIAlertAction(title: "okay", style: .Default) { (action) -> Void in
+                print("The user is okay.")
+            }
+            
+            internetErrorAlert.addAction(yesAction)
+            self.presentViewController(internetErrorAlert, animated: true, completion: nil)
+        }
+        
     }
     
     func getAllCaseStudy(){

@@ -50,12 +50,33 @@ class CaseStudyDetailViewController: UIViewController, UIWebViewDelegate {
     }
 
     @IBAction func shareCaseStudy(sender: AnyObject) {
-        
-        let activityController = UIActivityViewController(activityItems: ["See attached for KM&T Case Study"], applicationActivities: nil)
-        self.presentViewController(activityController, animated: true, completion: nil)
-        let presCon = activityController.popoverPresentationController
-        presCon?.barButtonItem = sender as? UIBarButtonItem
-    }
+            
+            //presentViewController( activityVC, animated: true, completion: nil )
+            
+            self.view.addSubview(attchBioSpinner)
+            let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+            let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+            let request = NSMutableURLRequest(URL: NSURL(string: caseStudy!)!)
+            request.HTTPMethod = "GET"
+            let task = session.dataTaskWithRequest(request, completionHandler: {data, response, err -> Void in
+                
+                dispatch_async(dispatch_get_main_queue())
+                    {
+                        let activityController = UIActivityViewController(activityItems: ["See attached for KM&T Case Study", data!], applicationActivities: nil)
+                        self.presentViewController(activityController, animated: true, completion: nil)
+                        let presCon = activityController.popoverPresentationController
+                        presCon?.barButtonItem = sender as? UIBarButtonItem
+                        self.attchBioSpinner.hide()
+                }
+                
+                
+                
+            })
+            
+            task.resume()
+            
+        }
+    
     
 
     /*

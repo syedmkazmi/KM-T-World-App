@@ -11,7 +11,7 @@ import MessageUI
 import Foundation
 import QuickLook
 
-class BioDetailViewController: UIViewController, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate {
+class BioDetailViewController: UIViewController, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate, UIWebViewDelegate  {
 
     // Outlet for the webView where we load the URL for the bio from the server or dropbox
     @IBOutlet weak var webView: UIWebView!
@@ -42,6 +42,7 @@ class BioDetailViewController: UIViewController, MFMailComposeViewControllerDele
         // Loading the
         let urlPdf = NSURL(string: userBioLink!);
         let requestObj = NSURLRequest(URL: urlPdf!)
+        webView.delegate = self
         webView.loadRequest(requestObj)
         // Do any additional setup after loading the view.
         
@@ -57,7 +58,12 @@ class BioDetailViewController: UIViewController, MFMailComposeViewControllerDele
     
     
     override func viewDidAppear(animated: Bool) {
+    
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
         self.spinner.hide()
+        
     }
 
     override func didReceiveMemoryWarning() {
