@@ -1,6 +1,8 @@
 # Initial App plan / structure #
 
-## Version 1 ##
+**Current version - 2.0**
+
+## Version 3.0 ##
 * Knowledge Database
 * Filterable Hierarchy
 * Case Study Link
