@@ -2,7 +2,7 @@
 
 **Current stable version available - 2.0**
 
-## Version 3.0 ##
+## Version under development - 3.0 ##
 * Knowledge Database
 * Filterable Hierarchy
 * Case Study Link
