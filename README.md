@@ -1,6 +1,6 @@
 # Initial App plan / structure #
 
-**Current version - 2.0**
+**Current stable version available - 2.0**
 
 ## Version 3.0 ##
 * Knowledge Database
