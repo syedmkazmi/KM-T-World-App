@@ -8,4 +8,8 @@
 * Case Study Link
 * Project Snapshot
 
+# High level Activity Diagram #
+
+![ActivityDiagram1.png](https://bitbucket.org/repo/o6rkja/images/2419777406-ActivityDiagram1.png)
+
 ![IMG_0230.JPG](https://bitbucket.org/repo/o6rkja/images/1768878954-IMG_0230.JPG)
