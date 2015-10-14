@@ -8,7 +8,7 @@
 * Case Study Link
 * Project Snapshot
 
-# High level Activity Diagram #
+# High level Activity Diagram For Knowledge Base component #
 
 ![ActivityDiagram1.png](https://bitbucket.org/repo/o6rkja/images/2419777406-ActivityDiagram1.png)
 
