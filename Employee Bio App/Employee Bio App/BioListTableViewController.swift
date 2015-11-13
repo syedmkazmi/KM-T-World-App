@@ -8,13 +8,17 @@
 
 import UIKit
 
-class BioListTableViewController: UITableViewController {
+class BioListTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate  {
     
     // variable to hold the index value of the cell tapped
     var cellTapped = Int()
     let spinner = customActivityIndicator(text: "Loading")
+    var checkBool: Bool =  false
 
+    @IBOutlet var segmentControl: UISegmentedControl!
+   
     var json: NSArray!
+    
 
     @IBOutlet var tableview: UITableView!
     
@@ -41,8 +45,10 @@ class BioListTableViewController: UITableViewController {
             
            case 0:
               getHealthcareBio()
+              checkBool = true
            case 1:
               getMMRObio()
+              checkBool = true
            case 2:
               getInfrastructureBio()
            case 3:
@@ -51,12 +57,37 @@ class BioListTableViewController: UITableViewController {
               getMiningBio()
            case 5:
               getESBio()
+           case 6:
+              getAllBios()
            default:
               getAllBios()
         
         }
         
    }
+    
+    
+    @IBAction func segController(sender: AnyObject) {
+        
+        switch segmentControl.selectedSegmentIndex {
+        
+        case 0:
+            if (checkBool){
+                filterBioByRegionUK()
+                tableView.reloadData()
+            }
+        case 1:
+            getRailBio()
+            tableView.reloadData()
+        case 2:
+            filterBioByRegionNorthAmerica()
+            tableView.reloadData()
+        default:
+            getHealthcareBio()
+            tableView.reloadData()
+        
+        }
+    }
     
     override func viewDidAppear(animated: Bool)
     {
@@ -70,7 +101,304 @@ class BioListTableViewController: UITableViewController {
         
     }
     
+    func filterBioByRegionUK(){
+    
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            
+            //To start animating
+            self.view.addSubview(spinner)
+            
+            
+            print("This is TWEST")
+            
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://employee-bio-app-kmandt-syedkazmi.c9.io/user/healthcare/uk/bio")!)
+            let session = NSURLSession.sharedSession()
+            request.HTTPMethod = "GET"
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
+            
+            let _: NSError?
+            
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+            let task = session.dataTaskWithRequest(request, completionHandler: {data, response, err -> Void in
+                
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+                
+                print("Response: \(response)")
+                let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("Body: \(strData)")
+                //var err: NSError?
+                
+                do{
+                    self.json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) as? NSArray
+                } catch {
+                    
+                }
+                
+                
+                
+                // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
+                if(err != nil) {
+                    
+                    print(err!.localizedDescription)
+                    let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print("Error could not parse JSON: '\(jsonStr)'")
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        
+                        let alert = UIAlertController(title: "Alert", message: "Seems to be an error with server. Try Again Later", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        
+                    }}
+                else {
+                    
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    
+                    //To to long tasks
+                    // LoadingOverlay.shared.hideOverlayView()
+                    // The JSONObjectWithData constructor didn't return an error. But, we should still
+                    // check and make sure that json has a value using optional binding.
+                    //var newWeather = WeatherSummary(id:"")
+                    
+                    if let parseJSON = self.json {
+                        
+                        
+                        self.bioArray = parseJSON
+                        
+                        
+                    }
+                    else {
+                        // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+                        let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                        print("Error could not parse JSON: \(jsonStr)")
+                        
+                    }}
+                
+            })
+            
+            
+            task.resume()
+            
+        }
+            
+        else {
+            
+            print("Internet connection FAILED")
+            let internetErrorAlert  = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: .Alert)
+            
+            let yesAction = UIAlertAction(title: "okay", style: .Default) { (action) -> Void in
+                print("The user is okay.")
+            }
+            
+            internetErrorAlert.addAction(yesAction)
+            self.presentViewController(internetErrorAlert, animated: true, completion: nil)
+        }
+
+    }
+    
+    func filterBioByRegionNorthAmerica(){
+    
+        
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            
+            //To start animating
+            self.view.addSubview(spinner)
+            
+            
+            print("This is TWEST")
+            
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://employee-bio-app-kmandt-syedkazmi.c9.io/user/healthcare/na/bio")!)
+            let session = NSURLSession.sharedSession()
+            request.HTTPMethod = "GET"
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
+            
+            let _: NSError?
+            
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+            let task = session.dataTaskWithRequest(request, completionHandler: {data, response, err -> Void in
+                
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+                
+                print("Response: \(response)")
+                let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("Body: \(strData)")
+                //var err: NSError?
+                
+                do{
+                    self.json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) as? NSArray
+                } catch {
+                    
+                }
+                
+                
+                
+                // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
+                if(err != nil) {
+                    
+                    print(err!.localizedDescription)
+                    let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print("Error could not parse JSON: '\(jsonStr)'")
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        
+                        let alert = UIAlertController(title: "Alert", message: "Seems to be an error with server. Try Again Later", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        
+                    }}
+                else {
+                    
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    
+                    //To to long tasks
+                    // LoadingOverlay.shared.hideOverlayView()
+                    // The JSONObjectWithData constructor didn't return an error. But, we should still
+                    // check and make sure that json has a value using optional binding.
+                    //var newWeather = WeatherSummary(id:"")
+                    
+                    if let parseJSON = self.json {
+                        
+                        
+                        self.bioArray = parseJSON
+                        
+                        
+                    }
+                    else {
+                        // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+                        let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                        print("Error could not parse JSON: \(jsonStr)")
+                        
+                    }}
+                
+            })
+            
+            
+            task.resume()
+            
+        }
+            
+        else {
+            
+            print("Internet connection FAILED")
+            let internetErrorAlert  = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: .Alert)
+            
+            let yesAction = UIAlertAction(title: "okay", style: .Default) { (action) -> Void in
+                print("The user is okay.")
+            }
+            
+            internetErrorAlert.addAction(yesAction)
+            self.presentViewController(internetErrorAlert, animated: true, completion: nil)
+        }
+    
+    }
+    
+    
     func getAllBios(){
+        
+        
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            
+            //To start animating
+            self.view.addSubview(spinner)
+            
+            
+            print("This is TWEST")
+            
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://employee-bio-app-kmandt-syedkazmi.c9.io/user/bio/all")!)
+            let session = NSURLSession.sharedSession()
+            request.HTTPMethod = "GET"
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
+            
+            let _: NSError?
+            
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+            let task = session.dataTaskWithRequest(request, completionHandler: {data, response, err -> Void in
+                
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+                
+                print("Response: \(response)")
+                let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("Body: \(strData)")
+                //var err: NSError?
+                
+                do{
+                    self.json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) as? NSArray
+                } catch {
+                    
+                }
+                
+                
+                
+                // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
+                if(err != nil) {
+                    
+                    print(err!.localizedDescription)
+                    let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print("Error could not parse JSON: '\(jsonStr)'")
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        
+                        let alert = UIAlertController(title: "Alert", message: "Seems to be an error with server. Try Again Later", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        
+                    }}
+                else {
+                    
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    
+                    //To to long tasks
+                    // LoadingOverlay.shared.hideOverlayView()
+                    // The JSONObjectWithData constructor didn't return an error. But, we should still
+                    // check and make sure that json has a value using optional binding.
+                    //var newWeather = WeatherSummary(id:"")
+                    
+                    if let parseJSON = self.json {
+                        
+                        
+                        self.bioArray = parseJSON
+                        
+                        
+                    }
+                    else {
+                        // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+                        let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                        print("Error could not parse JSON: \(jsonStr)")
+                        
+                    }}
+                
+            })
+            
+            
+            task.resume()
+            
+        }
+            
+        else {
+            
+            print("Internet connection FAILED")
+            let internetErrorAlert  = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: .Alert)
+            
+            let yesAction = UIAlertAction(title: "okay", style: .Default) { (action) -> Void in
+                print("The user is okay.")
+            }
+            
+            internetErrorAlert.addAction(yesAction)
+            self.presentViewController(internetErrorAlert, animated: true, completion: nil)
+        }
+
     
     }
     
@@ -150,7 +478,7 @@ class BioListTableViewController: UITableViewController {
                         
                         
                         self.bioArray = parseJSON
-                        
+                
                         
                     }
                     else {
@@ -500,28 +828,36 @@ class BioListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
+        
         return self.bioArray.count ?? 0
+        
+
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("bioCell", forIndexPath: indexPath) 
+        let cell = tableView.dequeueReusableCellWithIdentifier("bioCell", forIndexPath: indexPath)
  
         
-        
-        let Summary: AnyObject = bioArray[indexPath.row]
-        
-        if let id = Summary["employeeName"] as? String
-        {
-            cell.textLabel?.text = id
+            let Summary: AnyObject = bioArray[indexPath.row]
             
-        }
+            if let id = Summary["employeeName"] as? String
+            {
+                cell.textLabel?.text = id
+                
+            }
+            
+            if let job = Summary["jobTitle"] as? String {
+                cell.detailTextLabel?.text = job
+                cell.detailTextLabel?.numberOfLines = 0
+                
+            }
+            
         
-        if let job = Summary["jobTitle"] as? String {
-            cell.detailTextLabel?.text = job
-            cell.detailTextLabel?.numberOfLines = 0
         
-        }
+        
+        
+      
         
         //if  cell.imageView?.image == nil {
           //  cell.imageView?.image = UIImage(named: "defaultUserIcon.pdf")

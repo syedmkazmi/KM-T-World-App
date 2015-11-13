@@ -8,14 +8,20 @@
 
 import UIKit
 
-class CaseStudyListTableViewController: UITableViewController {
-    
+class CaseStudyListTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
+ 
     var refreshCtrl = UIRefreshControl()
     var cellTapped = Int()
     let spinner = customActivityIndicator(text: "Loading")
     var json: NSArray!
+    var jsonDictionary: NSDictionary!
+    var dta = []
     
+    @IBOutlet var searchbar: UISearchBar!
     @IBOutlet var tableview: UITableView!
+    
+    var searchActive : Bool = false
+    var filtered = []
     
     var bioArray = NSArray(){
         didSet{
@@ -30,6 +36,7 @@ class CaseStudyListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = 80.0
+        searchbar.delegate = self
         //self.refreshCtrl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         //self.refreshCtrl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         //self.tableView?.addSubview(refreshCtrl)
@@ -42,6 +49,7 @@ class CaseStudyListTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         // A switch Statement to check which cell was tapped and which API link to call
+        
         switch cellTapped
         {
             
@@ -57,6 +65,81 @@ class CaseStudyListTableViewController: UITableViewController {
             getAllCaseStudy()
         }
     }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All"){
+        
+        self.filtered = self.bioArray.filter({ (text) -> Bool in
+            
+            //Access the title and sectors
+            let tmpTitle = text["caseStudyTitle"] as! String
+            let tmpSector = text["sector"] as! String
+            //let categoryMatch = (scope == "UK") || (tmpTitle == scope)
+            //Create a range for both
+            let range1 = tmpTitle.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            let range2 = tmpSector.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            //print("THIS IS TEXT \(text)")
+            //Return true if either match
+            return (range1 != nil) || range2 != nil
+
+        })
+        if(filtered.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.tableView.reloadData()
+
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String?) -> Bool {
+        self.filterContentForSearchText(searchString!)
+        return true
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text!)
+        return true
+    }
+    
+    /*func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        //  if let id = dta["caseStudyTitle"] as? String
+        filtered = bioArray.filter({ (text) -> Bool in
+            
+            //Access the title and sectors
+            let tmpTitle = text["caseStudyTitle"] as! String
+            let tmpSector = text["sector"] as! String
+            //let categoryMatch = (scope == "UK") || (tmpTitle == scope)
+            //Create a range for both
+            let range1 = tmpTitle.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            let range2 = tmpSector.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            //print("THIS IS TEXT \(text)")
+            //Return true if either match
+            return (range1 != nil) || range2 != nil
+            
+        })
+        if(filtered.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.tableView.reloadData()
+    }*/
     
     /*func refresh(sender:AnyObject)
     {
@@ -133,7 +216,8 @@ class CaseStudyListTableViewController: UITableViewController {
                         
                         
                         self.bioArray = parseJSON
-                        
+                        //self.dta = parseJSON
+                        self.filtered = parseJSON
                         
                     }
                     else {
@@ -231,7 +315,6 @@ class CaseStudyListTableViewController: UITableViewController {
                         
                         
                         self.bioArray = parseJSON
-                        
                         
                     }
                     else {
@@ -478,16 +561,32 @@ class CaseStudyListTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.bioArray.count ?? 0
+        if(searchActive){
+            return filtered.count
+        }
+        else {
+            return self.bioArray.count ?? 0
+        }
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("caseStudyCell", forIndexPath: indexPath)
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("caseStudyCell", forIndexPath: indexPath)
 
         // Configure the cell...
         
-        
+        if(searchActive){
+            let Summary: AnyObject = filtered[indexPath.row]
+            
+            if let id = Summary["caseStudyTitle"] as? String
+            {
+                cell.textLabel?.text = id
+                cell.textLabel?.numberOfLines = 0
+                cell.imageView?.image = UIImage(named: "pdfIcon.png")
+            }
+            
+        }
+        else {
         let Summary: AnyObject = bioArray[indexPath.row]
         
         if let id = Summary["caseStudyTitle"] as? String
@@ -497,9 +596,11 @@ class CaseStudyListTableViewController: UITableViewController {
             
         }
         
-       cell.imageView?.image = UIImage(named: "pdfIcon.png")
+          cell.imageView?.image = UIImage(named: "pdfIcon.png")
+        }
         
         return cell
+            
     }
     
 
@@ -547,9 +648,13 @@ class CaseStudyListTableViewController: UITableViewController {
             
             let indexPath = self.tableView.indexPathForSelectedRow
             if let row:Int = indexPath?.row{
-                
-                print("ROW \(row)")
-                destination.userObject = bioArray[row] as! NSDictionary
+                if(searchActive){
+                     destination.userObject = filtered[row] as! NSDictionary
+                }
+                else {
+                    print("ROW \(row)")
+                    destination.userObject = bioArray[row] as! NSDictionary
+                }
             }
             
         }

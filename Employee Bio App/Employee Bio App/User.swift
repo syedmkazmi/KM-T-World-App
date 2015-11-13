@@ -16,5 +16,6 @@ class User {
     static var name : String?
     static var email: String?
     static var job: String?
+    static var sector: String?
     
 }

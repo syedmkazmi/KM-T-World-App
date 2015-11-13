@@ -10,8 +10,11 @@
 		0E3043E61B8C671100300CB3 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3043E51B8C671100300CB3 /* UIImage+animatedGIF.m */; };
 		0E37602D1BBBD4F400C1D3AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E37602B1BBBD4F400C1D3AA /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		0E40603A1BA2E08F00F305F1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4060391BA2E08F00F305F1 /* User.swift */; };
+		0E491FC01BE8B9A20056DF7A /* SectorKnowledgeBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E491FBF1BE8B9A20056DF7A /* SectorKnowledgeBaseTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		0E77FAAB1B8B1D780080D2A8 /* sectorButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E77FAAA1B8B1D780080D2A8 /* sectorButtons.swift */; };
 		0E77FAAF1B8B25FE0080D2A8 /* SectorListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E77FAAE1B8B25FE0080D2A8 /* SectorListTableViewController.swift */; };
+		0E789B051BEB6BA70028DD60 /* CaseStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E789B041BEB6BA70028DD60 /* CaseStudy.swift */; settings = {ASSET_TAGS = (); }; };
+		0E789B071BECE9440028DD60 /* UserBio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E789B061BECE9440028DD60 /* UserBio.swift */; settings = {ASSET_TAGS = (); }; };
 		0E8C69C31BBA83F200FA2F28 /* CaseStudySectorListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C69C21BBA83F200FA2F28 /* CaseStudySectorListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		0E8C69C51BBA8E3600FA2F28 /* CaseStudyListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C69C41BBA8E3600FA2F28 /* CaseStudyListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		0E8C69CD1BBACD2F00FA2F28 /* CaseStudyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C69CC1BBACD2F00FA2F28 /* CaseStudyDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -37,8 +40,11 @@
 		0E3043E71B8C674A00300CB3 /* Employee Bio App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Employee Bio App-Bridging-Header.h"; sourceTree = "<group>"; };
 		0E37602C1BBBD4F400C1D3AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E4060391BA2E08F00F305F1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0E491FBF1BE8B9A20056DF7A /* SectorKnowledgeBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectorKnowledgeBaseTableViewController.swift; sourceTree = "<group>"; };
 		0E77FAAA1B8B1D780080D2A8 /* sectorButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sectorButtons.swift; sourceTree = "<group>"; };
 		0E77FAAE1B8B25FE0080D2A8 /* SectorListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectorListTableViewController.swift; sourceTree = "<group>"; };
+		0E789B041BEB6BA70028DD60 /* CaseStudy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseStudy.swift; sourceTree = "<group>"; };
+		0E789B061BECE9440028DD60 /* UserBio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBio.swift; sourceTree = "<group>"; };
 		0E8C69C21BBA83F200FA2F28 /* CaseStudySectorListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseStudySectorListTableViewController.swift; sourceTree = "<group>"; };
 		0E8C69C41BBA8E3600FA2F28 /* CaseStudyListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseStudyListTableViewController.swift; sourceTree = "<group>"; };
 		0E8C69CC1BBACD2F00FA2F28 /* CaseStudyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseStudyDetailViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +111,7 @@
 				0EB20E0B1BA2B3C000259F07 /* OpenSan Font */,
 				0E3043E31B8C66FC00300CB3 /* Gif Header Files */,
 				0E4060391BA2E08F00F305F1 /* User.swift */,
+				0E789B041BEB6BA70028DD60 /* CaseStudy.swift */,
 				0EB17D2C1B8610B200C59811 /* AppDelegate.swift */,
 				0EB17D4C1B86118400C59811 /* LoginViewController.swift */,
 				0EB17D4E1B8611E700C59811 /* MainViewController.swift */,
@@ -118,6 +125,7 @@
 				0EB17D501B86123700C59811 /* SectorViewController.swift */,
 				0E77FAAA1B8B1D780080D2A8 /* sectorButtons.swift */,
 				0EBF92031BA19333001705D1 /* SettingsTableViewController.swift */,
+				0E491FBF1BE8B9A20056DF7A /* SectorKnowledgeBaseTableViewController.swift */,
 				0EB17D331B8610B200C59811 /* Images.xcassets */,
 				0E37602B1BBBD4F400C1D3AA /* Main.storyboard */,
 				0EB17D351B8610B200C59811 /* LaunchScreen.xib */,
@@ -125,6 +133,7 @@
 				0E3043E71B8C674A00300CB3 /* Employee Bio App-Bridging-Header.h */,
 				0EA60CD11B905BA10099FC92 /* LoadingOverlay.swift */,
 				0EFD57DF1BAFEDC40041FCE4 /* Reachability.swift */,
+				0E789B061BECE9440028DD60 /* UserBio.swift */,
 			);
 			path = "Employee Bio App";
 			sourceTree = "<group>";
@@ -245,11 +254,14 @@
 			files = (
 				0EFD57E01BAFEDC40041FCE4 /* Reachability.swift in Sources */,
 				0E40603A1BA2E08F00F305F1 /* User.swift in Sources */,
+				0E789B051BEB6BA70028DD60 /* CaseStudy.swift in Sources */,
 				0E77FAAB1B8B1D780080D2A8 /* sectorButtons.swift in Sources */,
 				0EB17D511B86123700C59811 /* SectorViewController.swift in Sources */,
 				0EB17D571B8612E300C59811 /* ContactViewController.swift in Sources */,
 				0EA60CD21B905BA10099FC92 /* LoadingOverlay.swift in Sources */,
 				0E8C69C31BBA83F200FA2F28 /* CaseStudySectorListTableViewController.swift in Sources */,
+				0E491FC01BE8B9A20056DF7A /* SectorKnowledgeBaseTableViewController.swift in Sources */,
+				0E789B071BECE9440028DD60 /* UserBio.swift in Sources */,
 				0EB17D4F1B8611E700C59811 /* MainViewController.swift in Sources */,
 				0EB17D551B8612A600C59811 /* BioDetailViewController.swift in Sources */,
 				0E8C69C51BBA8E3600FA2F28 /* CaseStudyListTableViewController.swift in Sources */,
